@@ -26,6 +26,7 @@ module ALU
 localparam ADD = 4'b0000;
 localparam OR  = 4'b0001;
 localparam SLLI= 4'b0010;
+localparam SRLI= 4'b0011;
 	
    always @ (A_i or B_i or ALU_Operation_i)
      begin
@@ -36,7 +37,8 @@ localparam SLLI= 4'b0010;
 			ALU_Result_o = A_i | B_i;
 		SLLI: //slli
 			ALU_Result_o = A_i << B_i;
-	
+		SRLI: //srli
+			ALU_Result_o = A_i >> B_i;
 		default:
 			ALU_Result_o = 0;
 		endcase // case(control)
