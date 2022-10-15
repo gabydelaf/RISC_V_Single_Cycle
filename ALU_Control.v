@@ -25,7 +25,7 @@ module ALU_Control
 localparam R_Type_ADD		= 7'b0_000_000;
 localparam I_Type_ADDI 		= 7'bx_001_000;
 localparam U_Type_LUI		= 7'bx_010_xxx;
-
+localparam I_Type_ORI		= 7'bx_001_110;
 
 
 reg [3:0] alu_control_values;
@@ -39,7 +39,7 @@ always@(selector)begin
 		R_Type_ADD: 	alu_control_values = 4'b0000;
 		I_Type_ADDI: 	alu_control_values = 4'b0000;
 		U_Type_LUI:		alu_control_values = 4'b0000;
-		
+		I_Type_ORI:		alu_control_values = 4'b0001;
 		
 
 		default: alu_control_values = 4'b00_00;
